@@ -89,3 +89,7 @@ WhatsApp links use the international format without a leading `+` (Pakistan coun
 - No prices are displayed by design.
 - Urdu copy is included, but please ask a fluent Urdu reader to proofread the wording before launch.
 - Google Fonts are loaded from an external service. If you need fully self-hosted fonts, replace the import in `src/index.css`.
+
+## Furniture photos
+
+The `public/images/` folder contains the furniture photos supplied for the site. The home hero and the new sofa-design gallery use these local images. To replace a photo, keep the corresponding filename (`sofa-01.jpg` through `sofa-14.jpg`) or update the `galleryPhotos` list in `src/App.jsx`.

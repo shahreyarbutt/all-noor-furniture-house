@@ -256,3 +256,18 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Real furniture photography supplied by All Noor Furniture House */
+.hero-photo-real::before, .hero-photo-real::after { display: none; }
+.hero-photo-real img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.gallery-section { padding: 15px 0 105px; }
+.gallery-heading { margin-bottom: 32px; }
+.photo-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.gallery-photo { position: relative; margin: 0; min-width: 0; height: 245px; overflow: hidden; background: #e7ddd0; }
+.gallery-photo:nth-child(5n + 1), .gallery-photo:nth-child(5n + 4) { height: 285px; }
+.gallery-photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+.gallery-photo:hover img { transform: scale(1.045); }
+.gallery-photo figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 28px 14px 12px; color: white; font-size: 10px; letter-spacing: .04em; background: linear-gradient(transparent, rgba(25,20,16,.68)); }
+.gallery-photo figcaption span:last-child { font-variant-numeric: tabular-nums; opacity: .8; }
+@media (max-width: 900px) { .photo-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } .gallery-photo, .gallery-photo:nth-child(5n + 1), .gallery-photo:nth-child(5n + 4) { height: 220px; } }
+@media (max-width: 600px) { .gallery-section { padding-bottom: 75px; } .photo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .gallery-photo, .gallery-photo:nth-child(5n + 1), .gallery-photo:nth-child(5n + 4) { height: 190px; } .gallery-photo figcaption { font-size: 9px; padding: 24px 9px 9px; } }

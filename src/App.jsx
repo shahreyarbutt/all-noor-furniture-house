@@ -20,6 +20,10 @@ const copy = {
     collectionEyebrow: 'FIND YOUR STYLE',
     collectionTitle: 'Furniture for every corner',
     collectionText: 'Browse our main categories, then message us to discuss the design, size, fabric and finish you have in mind.',
+    galleryEyebrow: 'MADE AT ALL NOOR',
+    galleryTitle: 'A look at our sofa designs',
+    galleryText: 'Explore a selection of sofa styles and finishes. Message us to discuss a design that suits your home.',
+    galleryCaption: 'Sofa design',
     categories: [
       ['Sofa Sets', 'Comfortable centrepieces for your living room.'],
       ['Sofa-Cum-Beds', 'Flexible comfort for sitting and sleeping.'],
@@ -80,6 +84,10 @@ const copy = {
     collectionEyebrow: 'اپنا انداز منتخب کریں',
     collectionTitle: 'گھر کے ہر کونے کے لیے فرنیچر',
     collectionText: 'ہماری بنیادی کیٹیگریز دیکھیں اور اپنے پسندیدہ ڈیزائن، سائز، کپڑے اور فنش کے بارے میں بات کرنے کے لیے رابطہ کریں۔',
+    galleryEyebrow: 'آل نور میں تیار کردہ',
+    galleryTitle: 'ہمارے صوفوں کے ڈیزائن',
+    galleryText: 'صوفوں کے مختلف انداز اور فنش دیکھیں۔ اپنے گھر کے مطابق ڈیزائن پر بات کرنے کے لیے رابطہ کریں۔',
+    galleryCaption: 'صوفے کا ڈیزائن',
     categories: [
       ['صوفہ سیٹ', 'آپ کے لاؤنج کے لیے آرام دہ صوفے۔'],
       ['صوفہ کم بیڈ', 'بیٹھنے اور سونے کے لیے کارآمد انتخاب۔'],
@@ -154,6 +162,7 @@ function App() {
 
   const categoryIcons = ['sofa', 'bed', 'cushion', 'dining', 'chair', 'custom']
   const categoryNamesEn = ['Sofa Sets', 'Sofa-Cum-Beds', 'Cushions', 'Dining Sets', 'Chairs', 'Custom Furniture']
+  const galleryPhotos = Array.from({ length: 14 }, (_, i) => `/images/sofa-${String(i + 1).padStart(2, '0')}.jpg`)
 
   return (
     <div className={`site-shell ${isUrdu ? 'urdu-mode' : ''}`} dir={isUrdu ? 'rtl' : 'ltr'} lang={isUrdu ? 'ur' : 'en'}>
@@ -202,13 +211,9 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Furniture photograph placeholder">
-            <div className="hero-photo-placeholder">
-              <div className="placeholder-frame">
-                <span className="placeholder-icon">✳</span>
-                <span>{t.placeholder}</span>
-                <small>{isUrdu ? 'یہاں اپنی فرنیچر کی تصویر شامل کریں' : 'Add your own furniture photo here'}</small>
-              </div>
+          <div className="hero-visual" aria-label="All Noor Furniture House sofa design">
+            <div className="hero-photo-placeholder hero-photo-real">
+              <img src="/images/sofa-02.jpg" alt={isUrdu ? 'آل نور کا نیلے رنگ کا صوفہ سیٹ' : 'Blue sofa set by All Noor Furniture House'} />
             </div>
             <div className="hero-stamp">
               <span>ALL NOOR</span>
@@ -247,7 +252,25 @@ function App() {
               </article>
             ))}
           </div>
-          <p className="image-note">{isUrdu ? 'نوٹ: یہ خالی جگہیں آپ کی اصل فرنیچر تصاویر کے لیے ہیں۔' : 'Image placeholders are ready for your real furniture photography.'}</p>
+          <p className="image-note">{isUrdu ? 'مزید صوفوں کے ڈیزائن نیچے دیکھیں۔' : 'See more of our sofa designs below.'}</p>
+        </section>
+
+        <section className="gallery-section section-wrap" aria-labelledby="gallery-title">
+          <div className="section-heading gallery-heading">
+            <div>
+              <div className="eyebrow"><span />{t.galleryEyebrow}</div>
+              <h2 id="gallery-title">{t.galleryTitle}</h2>
+            </div>
+            <p>{t.galleryText}</p>
+          </div>
+          <div className="photo-gallery">
+            {galleryPhotos.map((photo, index) => (
+              <figure className={`gallery-photo gallery-photo-${(index % 6) + 1}`} key={photo}>
+                <img src={photo} alt={`${t.galleryCaption} ${String(index + 1).padStart(2, '0')}`} loading={index < 3 ? 'eager' : 'lazy'} />
+                <figcaption><span>{t.galleryCaption}</span><span>{String(index + 1).padStart(2, '0')}</span></figcaption>
+              </figure>
+            ))}
+          </div>
         </section>
 
         <section className="custom-section section-wrap" id="custom">
